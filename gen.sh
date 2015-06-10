@@ -15,4 +15,4 @@ touch out/cmd
 awk 'NR % 2 == 1' $1 | sort | uniq | xargs -L 1 ./catSrt.sh >> out/cmd
 cat utils/startcaca $1 >> out/cmd
 cat out/cmd | ./prout > cut.sh && chmod +x cut.sh && ./cut.sh
-rm cut.sh 2> /bin/bash
+rm cut.sh 2> /dev/null
