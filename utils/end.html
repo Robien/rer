@@ -1,0 +1,49 @@
+
+
+var all;
+var folderNames =  new Array();
+
+createArray();
+
+function createArray()
+{
+	var abc = "";
+	all = a.split("=== NEXT ===\n");
+	for (var i = 0; i < all.length;i++)
+	{
+		var data = all[i].split("\n");
+		var reduc = 0;
+		var id = 0;
+		for (var j = 0; j < data.length;j++)
+		{
+			if (data[j])
+			{
+				if (j - reduc == 1)
+				{
+					id = data[j];
+				}	
+				if (j - reduc >= 3)
+				{
+					abc += "<a href=\"javascript:add(" + id + ", \'" + folderNames[i] + "\', \'" + data[j].replace(/"/g,"").replace(/'/g,"") + "\')\" >" + data[j] + "</a><br />";
+				}
+				else if (j == 0)
+				{
+					folderNames[i] = data[j];
+					abc += "<h2>" + folderNames[i] + "</h2>";
+				}
+			}
+			else
+			{
+				reduc = j;
+			}
+		}
+	}
+	document.getElementById("list").innerHTML = abc;
+}
+
+function add(id, name, data)
+{
+	document.getElementById("selected").innerHTML += data + "<br />";
+	document.getElementById("caca").innerHTML += name + "<br />" + id + "<br />";
+}
+</script>
