@@ -9,10 +9,11 @@ fi
 
 #make the file
 ./prefetch-all.sh $1
-mkdir -p out
-rm out/* 2> /dev/null
-touch out/cmd
-awk 'NR % 2 == 1' $1 | sort | uniq | xargs -L 1 ./catSrt.sh >> out/cmd
-cat utils/startcaca $1 >> out/cmd
-cat out/cmd | ./prout > cut.sh && chmod +x cut.sh && ./cut.sh
+mkdir -p rer-files/working/out
+rm rer-files/working/out/* 2> /dev/null
+touch rer-files/working/out/cmd
+awk 'NR % 2 == 1' $1 | sort | uniq | xargs -L 1 ./catSrt.sh >> rer-files/working/out/cmd
+cat utils/startcaca $1 >> rer-files/working/out/cmd
+cat rer-files/working/out/cmd | ./prout > cut.sh && chmod +x cut.sh && ./cut.sh
 rm cut.sh 2> /dev/null
+rm rer-files/working/out/cmd 2> /dev/null

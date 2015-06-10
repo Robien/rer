@@ -263,12 +263,12 @@ int main(int argc, char* argv[])
 					if (argc > 1)
 					{
 
-						std::cout << "ffmpeg -i " << fileName << "/" << fileName << ".mp4 -ss " << start << " -t " << diff << " -c:v copy -c:a copy -loglevel error out/" << fileName << "." << id << ".mp4 &" << std::endl;
+						std::cout << "ffmpeg -i rer-files/working/" << fileName << "/" << fileName << ".mp4 -ss " << start << " -t " << diff << " -c:v copy -c:a copy -loglevel error rer-files/working/out/" << fileName << "." << id << ".mp4 &" << std::endl;
 					}
 					else
 					{
 						std::cout << "echo \"" << (i+1) << "/" << validId.size() << " ... \"" << std::endl;
-						std::cout << "ffmpeg -i " << fileName << "/" << fileName << ".mp4 -ss " << start << " -t " << diff << " -c:v libx264 -c:a libmp3lame -loglevel error out/" << fileName << "." << id << ".mp4" << std::endl;
+						std::cout << "ffmpeg -i rer-files/working/" << fileName << "/" << fileName << ".mp4 -ss " << start << " -t " << diff << " -c:v libx264 -c:a libmp3lame -loglevel error rer-files/working/out/" << fileName << "." << id << ".mp4" << std::endl;
 					}
 				}
 
@@ -293,7 +293,7 @@ int main(int argc, char* argv[])
 
 	for (unsigned int i = 0; i < validId.size(); ++i)
 	{
-		std::cout << "echo \"file 'out/" << fileNames[validIdFile[i]] << "." <<  srts[validIdFile[i]]->at(validId[i]) << ".mp4'\" >> listTmp.caca" << std::endl; 
+		std::cout << "echo \"file 'rer-files/working/out/" << fileNames[validIdFile[i]] << "." <<  srts[validIdFile[i]]->at(validId[i]) << ".mp4'\" >> listTmp.caca" << std::endl; 
 	}
 	std::cout << std::endl;
 
